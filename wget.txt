@@ -1,0 +1,2 @@
+wget -kEp "http://e-shuushuu.net/search/results/?page=1&tags=28706+!6+!60+!25+!15959+!182683+!71+!73+!29+!27+!42+!3371+!11+!10+!52+!67"
+wget -kEp "http://e-shuushuu.net/search/results/?page=1&tags=28706+!6+!60+!25+!15959+!182683+!71+!73+!29+!27+!42+!3371+!11+!10+!52+!67"

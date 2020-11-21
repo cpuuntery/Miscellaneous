@@ -1,0 +1,23 @@
+# add blank lines between lines
+find: \R
+replace: $0$0
+
+# add string to blank lines
+find: ^(?:[\t ]*(?:\r?\n|\r))+
+replace: Dir | Rename-Item –NewName { $_.name –replace "虾米音乐 - ","" }\n
+
+# add string at the end of each line 
+find: $
+replace: the string
+
+# add qoutes at the start and end of each line
+find: (.+)
+replace: "\1"
+
+# add string to the start of ecach line 
+find: ^
+replace: cd 
+
+# convert multiline to single line
+find: \R
+replace: leave it empty
