@@ -1,6 +1,8 @@
 #Replace anything inside the dom jquery is required
 $("body").html($("body").html().replace(/\?a=view/g,''));
 
+#Replace anything inside the dom
+document.body.innerHTML = document.body.innerHTML.replace(/\?a=view/g,'')
 
 # remove div with a particular text in it jquery is required
 $("div:contains('Example')").remove()
