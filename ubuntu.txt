@@ -14,6 +14,7 @@ mount -o bind /dev dev/
 127.0.0.1 ubuntu
 9-sudo apt install linux-image-[a krenel version]
 10- create the file [dhcp.network] in the path /etc/systemd/network/ to be like this
+
 [Match]
 Name=e*
 
@@ -26,14 +27,3 @@ LABEL=ubuntu	/	 ext4	defaults	0 0
 
 12 - change root password using [passwd] add a user if you want using [adduser] and add the user to the sudo group using [usermod -aG sudo [the username]
 13- run boot repair
-
-
-
-
-
-/etc/systemd/network/dhcp.network
-[Match]
-Name=e*
-
-[Network]
-DHCP=yes
