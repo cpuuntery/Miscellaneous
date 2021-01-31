@@ -2,10 +2,15 @@
 TAM3(?<=).*$
 
 #regex select everything between
-\char(.*?)\char
+
+word.*?word
+#result:include the word in the result
+OR
+#result:exclude the word in the result
+(?<=This is).*?(?=sentence)
 
 #regex exclude lines containing a specific word
-^((?!vocal|jpg|JPG|Vocal).)*$
+^(?!vocal|jpg|JPG|Vocal).*$
 
 # match strings longer than 40 characters
 .{40,}

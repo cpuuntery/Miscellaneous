@@ -7,6 +7,8 @@ document.body.innerHTML = document.body.innerHTML.replace(/\?a=view/g,'')
 # remove div with a particular text in it jquery is required
 $("div:contains('Example')").remove()
 
+# select element by attribute
+document.querySelectorAll("[myAttribute='aValue']");
 
 #Extract text from specific html element
 let elm = document.createElement('textarea');
