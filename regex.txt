@@ -5,12 +5,14 @@ TAM3(?<=).*$
 
 word.*?word
 #result:include the word in the result
+
 OR
+
 #result:exclude the word in the result
 (?<=This is).*?(?=sentence)
 
 #regex exclude lines containing a specific word
-^(?!vocal|jpg|JPG|Vocal).*$
+^(?!.*vocal|jpg).*$
 
 # match strings longer than 40 characters
 .{40,}
