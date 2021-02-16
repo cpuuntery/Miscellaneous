@@ -38,3 +38,8 @@ document.querySelector('body').prepend(elm)
 var data = $('#output').text();
 $(".filename:contains('S05')").each(function() {data += this.textContent + '\n'});
 $('#output').text( data );
+
+
+
+#set cookie value javascript
+document.cookie = "cookiename=cookievalue"
