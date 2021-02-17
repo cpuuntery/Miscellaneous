@@ -40,6 +40,8 @@ $(".filename:contains('S05')").each(function() {data += this.textContent + '\n'}
 $('#output').text( data );
 
 
-
-#set cookie value javascript
+#set cookie value 
 document.cookie = "cookiename=cookievalue"
+
+#set localstorage value
+localStorage["key"] = "value"
