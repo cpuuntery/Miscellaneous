@@ -22,3 +22,6 @@ OR
 
 #match all lines containing a string
 ^.*the-string.*$
+
+#select a number of lines after a string   
+string((.*\n){number of lines})
