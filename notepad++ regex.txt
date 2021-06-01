@@ -4,7 +4,7 @@ replace: $0$0
 
 # add string to blank lines
 find: ^(?:[\t ]*(?:\r?\n|\r))+
-replace: Dir | Rename-Item –NewName { $_.name –replace "虾米音乐 - ","" }\n
+replace: the string
 
 # add string at the end of each line 
 find: $
@@ -21,3 +21,6 @@ replace: cd
 # convert multiline to single line
 find: \R
 replace: leave it empty
+
+#remove duplicate lines (the bothe the orignal and the duplicate)
+^(.+(?:\R|$))\1+
