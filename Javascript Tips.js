@@ -4,11 +4,15 @@ $("body").html($("body").html().replace(/\?a=view/g,''));
 #Replace anything inside the dom
 document.body.innerHTML = document.body.innerHTML.replace(/\?a=view/g,'')
 
-# remove div with a particular text in it jquery is required
+#Remove div with a particular text in it jquery is required
 $("div:contains('Example')").remove()
 
-# select element by attribute
-document.querySelectorAll("[myAttribute='aValue']");
+#select element by attribute
+#Don't put a space between the selector and the attribute
+#You can use other Attribute selectors not just the (=)
+#For more info just google "Attribute selectors"
+#document.querySelectorAll("") is the same as $("") in jQuery 
+document.querySelectorAll("element.class_OR_element#id[myAttribute='aValue']");
 
 #Extract text from specific html element [change (x.textContent) to suit your needs]
 let elm = document.createElement('textarea');
