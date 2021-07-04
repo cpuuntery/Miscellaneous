@@ -12,7 +12,7 @@ $("div:contains('Example')").remove()
 #You can use other Attribute selectors not just the (=)
 #For more info just google "Attribute selectors"
 #document.querySelectorAll("") is the same as $("") in jQuery 
-document.querySelectorAll("element.class_OR_element#id[myAttribute='aValue']");
+document.querySelectorAll("element.class_OR_element#id[myAttribute='Value']");
 
 #Extract text from specific html element [change (x.textContent) to suit your needs]
 let elm = document.createElement('textarea');
