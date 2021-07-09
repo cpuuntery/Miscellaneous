@@ -1,32 +1,41 @@
-#select every text until the end of the line
+# select every text until the end of the line
 TAM3(?<=).*$
 
-#regex select everything between
+# regex select everything between
 
 word.*?word
-#result:include the word in the result
+# result:include the word in the result
 
 OR
 
-#result:exclude the word in the result
+# result:exclude the word in the result
 (?<=This is).*?(?=sentence)
 
-#regex exclude lines containing a specific word
+# regex exclude lines containing a specific word
 ^(?!.*vocal|jpg).*$
 
 # match strings longer than 40 characters
 .{40,}
 
-# the date 2020-4-28
+# \d+ means a all digits after a digit. \w+ means a all characters after a character including digits
+To match  2020-4-28
+\d+-\d+-\d+
+
+OR
+
+# if you want to specify the exact number of digits. It will not match if the number of digit is different. The same goes for characters
+To match  2020-4-28
 \d\d\d\d-\d\d-\d\d
 
-#match all lines containing a string
+# [a-z] is better than \w . because it excludes digits. for the UPPER CASE [A-Z] and for both case [a-zA-Z] alternatively you can use the i flag. just like there are /w+ there are [A-Z]+
+
+# match all lines containing a string
 ^.*the-string.*$
 
-#select a number of lines after a string   
+# select a number of lines after a string   
 string((.*\n){number of lines})
 
-#remove duplicate lines (the bothe the orignal and the duplicate)
+# remove duplicate lines (the bothe the orignal and the duplicate)
 (^.*$\n)\1+
 
 
