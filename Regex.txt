@@ -3,8 +3,8 @@ TAM3(?<=).*$
 
 # regex select everything between
 
-word.*?word
 # result:include the word in the result
+word.*?word
 
 OR
 
