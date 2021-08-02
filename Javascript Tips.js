@@ -39,9 +39,11 @@ var data = $('#output').text();
 $(".filename:contains('S05')").each(function() {data += this.textContent + '\n'});
 $('#output').text( data );
 
-
 #set cookie value 
 document.cookie = "cookiename=cookievalue"
 
 #set localstorage value
 localStorage["key"] = "value"
+
+#Select parent if it contain a specific child. and you can use "Attribute selectors" if you need it. jQuery is Required
+$('parent_element:has(child_element)')
