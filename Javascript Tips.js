@@ -51,9 +51,9 @@ localStorage["key"] = "value"
 $('parent_element:has(child_element)')
 
 
-#Select parent if it contain a specific child. and you can use "Attribute selectors" if you need it. You can use XPath because, in contrast to CSS selector.
-#XPath does not care about the child element. XPath just need an element and a condition to select an element if specified.
+#Select parent if it contain a specific child. and you can use "Attribute selectors" if you need it. You can use XPath because, in contrast to CSS selector
+#XPath does not care about the child element. XPath just need an element and a condition to select an element if specified
 #It only works with parent and child elements. So it is weaker than jQuery
-//parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]] 
+//parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]
 #only work in Chrome DevTools Console
 $x("//parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]")
