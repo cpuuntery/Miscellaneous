@@ -12,7 +12,7 @@ OR
 (?<=This is).*?(?=sentence)
 
 # regex exclude lines containing a specific word
-^(?!.*vocal|jpg).*$
+^(?:(?!android|google|qualcomm).)*$
 
 # match strings longer than 40 characters
 .{40,}
