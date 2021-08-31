@@ -1,0 +1,3 @@
+certutil -generateSSTFromWU roots.sst
+
+certutil -addstore "Root" "roots.sst"
