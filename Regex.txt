@@ -38,4 +38,26 @@ string((.*\n){number of lines})
 # remove duplicate lines (the bothe the orignal and the duplicate)
 (^.*$\n)\1+
 
+# The .* is greedy and matches a lot of strings, sometime it is desirable, and sometimes it is not desirable. So to make it non-greedy (lazy as it called in the world of regex) just add ? Like this .*?
+
+# The ? Is like an OR statement. It will match anything, whether it started with the character before it or not.
+To match negative number with the sign if they have it and positive number but without the sign.
+-?\d+
+To match negetive number and positibe number with the sighn if they have it
+\+?-?\d+
+
+
+# If the greedy match is too much and the lazy match is too little. The solution maybe to use \b (word boundary). But I like to think of it as a container for anything inside it.
+It makes most sense to use it with the greedy .* but you can put anything inside it. And you can put anything before the first word boundary and after the last word boundary to be more specified
+\b.*\b
+
+
+# You can put * after \d, and it will mean any character after a digit, just like \d+ means any number after a digit until you find no digits
+\d*
+
+# Length of characters to be matched
+{n,m}  n <= length <= m
+{n}    length == n
+{n,}   length >= n
+
 
