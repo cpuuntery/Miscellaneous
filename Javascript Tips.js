@@ -10,9 +10,18 @@ $("div:contains('Example')").remove()
 #select element by attribute
 #Don't put a space between the selector and the attribute
 #You can use other Attribute selectors not just the (=)
+#When using querySelectorAll(div > a) will get you the a that is a child, using querySelectorAll(div a) will give you the nearest a to the div according to the Dom tree hierarchy
+#querySelectorAll(div > a) = the nearest child
+#querySelectorAll(div a) = the nearest child or grandchild
 #For more info just google "Attribute selectors"
 #document.querySelectorAll("") is the same as $("") in jQuery 
 document.querySelectorAll("element.class_OR_element#id[myAttribute='Value']");
+
+#Extract text from specific html element and copy it to clipboard [change (x.textContent) to suit your needs]
+#The clipboard method is highly recommended if the output is too big
+let output = "";
+document.querySelectorAll("div.box span a").forEach(x => output += x.textContent + '\n');
+copy(output);
 
 #Extract text from specific html element [change (x.textContent) to suit your needs]
 let elm = document.createElement('textarea');
@@ -21,7 +30,7 @@ document.querySelector('body').prepend(elm)
 document.querySelectorAll("div.box span a").forEach(x => document.querySelector("#output").textContent += x.textContent + '\n')
 
 
-#Extract text from specific html element with regex if it matches specific text and [change (x.textContent) to suit your needs]
+#Extract text from specific html element with regex if it matches specific text and [change (x.textContent) to suit your needs] you can use the clipboard method
 let elm = document.createElement('textarea');
 elm.setAttribute("id", "output");
 document.querySelector('body').prepend(elm)
@@ -31,7 +40,7 @@ return elements.filter((element) =>element.childNodes[0] &&element.childNodes[0]
 get_nodes_containing_text('a', '~').forEach(x => document.querySelector("#output").textContent += x.textContent + '\n')
 
 
-#Extract text from specific html element if it matches specific text and it is case sensitive and  jquery is required
+#Extract text from specific html element if it matches specific text and it is case sensitive and jquery is required you can use the clipboard method
 let elm = document.createElement('textarea');
 elm.setAttribute("id", "output");
 document.querySelector('body').prepend(elm)
