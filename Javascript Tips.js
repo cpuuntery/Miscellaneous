@@ -23,6 +23,11 @@ let output = "";
 document.querySelectorAll("div.box span a").forEach(x => output += x.textContent + '\n');
 copy(output);
 
+#Same as the above but require jquery
+var output = "";
+$("a:contains('mirrors.kernel.org/ubuntu')").each(function() {output += this.href + '\n'});
+copy(output);
+
 #Extract text from specific html element [change (x.textContent) to suit your needs]
 let elm = document.createElement('textarea');
 elm.setAttribute("id", "output");
