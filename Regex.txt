@@ -3,13 +3,19 @@ TAM3(?<=).*$
 
 # regex select everything between
 
-# result:include the word in the result
+# include the word in the result (lazy match)
 word.*?word
+
+# include the word in the result (greedy match)
+word.*word
 
 OR
 
-# result:exclude the word in the result
+# result:exclude the word in the result (lazy match)
 (?<=This is).*?(?=sentence)
+
+# result:exclude the word in the result (greedy match)
+(?<=This is).*(?=sentence)
 
 # regex exclude lines containing a specific word
 ^(?:(?!android|google|qualcomm).)*$
