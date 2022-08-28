@@ -1,21 +1,31 @@
+[Very important. I repeat, this is very important]
+
+#If you use any regex and the regex is not matching anything, or it is not matching the expected behaviour. In that case, you must check if the regex is lazy or greedy and the regex flags
+
+g - Global. Finds all matches instead of stopping after the first.
+
+i - Ignore case. /[a-z]/i is equivalent to /[a-zA-Z]/.
+
+m - Multiline. ^ and $ match the beginning and end of each line respectively treating \n and \r as delimiters instead of simply the beginning and end of the entire string.
+
+s - single-line mode. Use it if you want to select multiple lines. It will most likely be used with  [select everything between]
+
+# The .* is greedy and matches a lot of strings, sometime it is desirable, and sometimes it is not desirable. So to make it non-greedy (lazy as it called in the world of regex) just add ? Like this .*?
+
+EVERY SINGLE RULE CAN BE USED WITH THE OTHER RULES. YOU CAN MIX AND MATCH REGEX RULES TO YOUR HEART'S CONTENT. I REPEAT, THE SKY'S THE LIMIT.
+
+[Very important. I repeat, this is very important]
+
 # select every text until the end of the line
 TAM3(?<=).*$
 
 # regex select everything between
 
-# include the word in the result (lazy match)
+# include the word in the result
 word.*?word
 
-# include the word in the result (greedy match)
-word.*word
-
-OR
-
-# result:exclude the word in the result (lazy match)
+# exclude the word in the result
 (?<=This is).*?(?=sentence)
-
-# result:exclude the word in the result (greedy match)
-(?<=This is).*(?=sentence)
 
 # regex exclude lines containing a specific word
 ^(?:(?!android|google|qualcomm).)*$
@@ -44,8 +54,6 @@ string((.*\n){number of lines})
 # remove duplicate lines (the bothe the orignal and the duplicate)
 (^.*$\n)\1+
 
-# The .* is greedy and matches a lot of strings, sometime it is desirable, and sometimes it is not desirable. So to make it non-greedy (lazy as it called in the world of regex) just add ? Like this .*?
-
 # The ? Is like an OR statement. It will match anything, whether it started with the character before it or not.
 To match negative number with the sign if they have it and positive number but without the sign.
 -?\d+
@@ -66,4 +74,14 @@ It makes most sense to use it with the greedy .* but you can put anything inside
 {n}    length == n
 {n,}   length >= n
 
+#replace last part of a string but keeping the other part intact
 
+[Every () Round brackets is a group, and there are two groups. $1 return the first group and anything after it, but everything after $1 will replace value of the second group if there is nothing after $1 the second group will be removed]
+
+match parameter    
+
+(.+)(.)
+
+replace parameter
+
+$1
