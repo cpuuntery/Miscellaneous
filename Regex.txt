@@ -1,7 +1,6 @@
 [Very important. I repeat, this is very important]
 
 #If you use any regex and the regex is not matching anything, or it is not matching the expected behaviour. In that case, you must check if the regex is lazy or greedy and the regex flags
-
 g - Global. Finds all matches instead of stopping after the first.
 
 i - Ignore case. /[a-z]/i is equivalent to /[a-zA-Z]/.
@@ -75,7 +74,6 @@ It makes most sense to use it with the greedy .* but you can put anything inside
 {n,}   length >= n
 
 #replace last part of a string but keeping the other part intact
-
 [Every () Round brackets is a group, and there are two groups. $1 return the first group and anything after it, but everything after $1 will replace value of the second group if there is nothing after $1 the second group will be removed]
 
 match parameter    
@@ -85,3 +83,12 @@ match parameter
 replace parameter
 
 $1
+
+#character classes
+.	[^\r\n]  matches anything except for a newline.
+\d	[0-9]  matches a digit
+\D	[^0-9]  matches all but a digit
+\w	[a-zA-Z0-9_]  matches a word character
+\W	[^a-zA-Z0-9_]  matches all but a word character
+\s	Matches any whitespace character, including spaces and tabs.
+\S	Matches all but a whitespace character.
