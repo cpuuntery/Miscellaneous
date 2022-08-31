@@ -1,0 +1,61 @@
+this is a list of regular expression to extract ASCII or replace non ascii
+
+#extract ascii
+[ -~]+
+
+#replace non ascii
+[^\t\r\n\x20-\x7E]+
+
+#replace non ascii
+[^a-z0-9``~!@#$%^&*()\-_=+\[\]{}\\|;:'"<>,./?\r\n]+
+
+#extract ascii
+[a-zA-Z0-9~@#\^\$&\*\(\)-_\+=\[\]\{\}\|\\,\.\?\s]+
+
+#replace non ascii
+[^a-zA-Z0-9~@#\^\$&\*\(\)-_\+=\[\]\{\}\|\\,\.\?\s]+
+
+#replace non ascii in Hexadecimal
+[^\\x00-\\xFFFF]+\\[a-z]\d.*?  
+https://regex101.com/r/LGGbNy/1/
+
+#select a character every specific number of character    [change {1} to the specific number of character that you want]
+(?:([\w])){1}(?1)\K
+https://regex101.com/r/8ASqoV/1
+
+
+preceding means the pattern before the quantifiers 
+quantifiers are always at the end of the pattern, but that does not mean at the end of the whole regex pattern
+
++		Matches its preceding pattern for one or more number of times.  				[does care for pattern/character before it (greedy)]
+*		Matches its preceding pattern for zero or more number of times. 				[does not care for pattern/character before it (greedy)]
+?		Matches its preceding pattern for zero or one number of times.  				[does not care for pattern/character before it (lazy)]
+{n}		Matches its preceding pattern exactly for n number of times.
+{m,n}	Matches its preceding pattern for m to n number of times.
+{n,}	Matches its preceding pattern for n or more number of times.
+
+you can set a minimum without a maximum but don't forget the comma
+
+custom ranged quantifiers is like Division in math
+.{5,6}
+(.) means any character and {} is {min,max} 
+min is the minimum number of to be selected
+max is the maximum number of to be selected
+the number of characters will be divided by max and if there is a remainder it will not be selected if [remainder < minimum] 
+{5}is the same as {5,5} it is both minimum and maximum at the same time
+
+any character before the quantifier will be considered as a rule for the quantifier. And at the same time the whole string will be considered as string to match, and the match will only happen when these two rules intersect
+
+the behaviour will change if you put the string before the quantifier inside []
+The quantifier will treat anything inside [] as a separate character
+
+the behaviour will change if you put the string before the quantifier inside ()
+The quantifier will treat anything inside () as a whole string
+
+
+#Boundaries
+\b word boundary
+https://i.imgur.com/pEWyQl2.png
+
+\B non-word boundary
+https://i.imgur.com/oKXMJda.png
