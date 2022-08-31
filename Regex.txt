@@ -1,17 +1,20 @@
 [Very important. I repeat, this is very important]
 
+YOU CAN NOT USE TWO REGEX EXPRESSIONS AT THE SAME TIME, BUT YOU CAN TRY TO BE AS SPECIFIC AS POSSIBLE. AND TRY TO BE FLEXIBLE AND MIX AND MATCH THE EXPRESSIONS
+AND IF WORST COME TO WORST YOU CAN REGEX A REGEX OUTPUT
+
 #If you use any regex and the regex is not matching anything, or it is not matching the expected behaviour. In that case, you must check if the regex is lazy or greedy and the regex flags
 g - Global. Finds all matches instead of stopping after the first.
 
 i - Ignore case. /[a-z]/i is equivalent to /[a-zA-Z]/.
 
-m - Multiline. ^ and $ match the beginning and end of each line respectively treating \n and \r as delimiters instead of simply the beginning and end of the entire string.
+m - Multiline. lets ^ and $ match the start and end of every single line in a string that contains multiple lines, instead of only the start and end of the string
 
 s - single-line mode. Use it if you want to select multiple lines. It will most likely be used with  [select everything between]
 
 # The .* is greedy and matches a lot of strings, sometime it is desirable, and sometimes it is not desirable. So to make it non-greedy (lazy as it called in the world of regex) just add ? Like this .*?
 
-EVERY SINGLE RULE CAN BE USED WITH THE OTHER RULES. YOU CAN MIX AND MATCH REGEX RULES TO YOUR HEART'S CONTENT. I REPEAT, THE SKY'S THE LIMIT.
+EVERY SINGLE REGEX OPERATIONS CONSTRUCTOR CAN BE USED WITH THE OTHER CONSTRUCTORS. FROM THE QUANTIFIERS EX (+) TO LOOKBEHIND EX (?=PATTERN). YOU CAN MIX AND MATCH REGEX CONSTRUCTORS TO YOUR HEART'S CONTENT. I REPEAT, THE SKY'S THE LIMIT.
 
 [Very important. I repeat, this is very important]
 
@@ -60,21 +63,22 @@ To match negetive number and positibe number with the sighn if they have it
 \+?-?\d+
 
 
-# If the greedy match is too much and the lazy match is too little. The solution maybe to use \b (word boundary). But I like to think of it as a container for anything inside it.
-It makes most sense to use it with the greedy .* but you can put anything inside it. And you can put anything before the first word boundary and after the last word boundary to be more specified
+# If the greedy match is too much and the lazy match is too little. The solution maybe to use \b (word boundary)
+it is the same as (^) and ($) in the Multiline mode, but the difference is \b also mean before and after a spice
 \b.*\b
 
 
 # You can put * after \d, and it will mean any character after a digit, just like \d+ means any number after a digit until you find no digits
 \d*
 
-# Length of characters to be matched
-{n,m}  n <= length <= m
-{n}    length == n
-{n,}   length >= n
+# quantifiers are very useful if you repeat the exact same regex
+instead of this 
+regexregexregex
+use 
+regex{3}
 
-#replace last part of a string but keeping the other part intact
-[Every () Round brackets is a group, and there are two groups. $1 return the first group and anything after it, but everything after $1 will replace value of the second group if there is nothing after $1 the second group will be removed]
+# Replace only the last part of a matched string 
+Every () is a group, and there are two groups. $1 return the first group and anything after it, but everything after $1 will replace value of the second group if there is nothing after $1 the second group will be removed
 
 match parameter    
 
@@ -84,7 +88,7 @@ replace parameter
 
 $1
 
-#character classes
+# character classes
 .	[^\r\n]  matches anything except for a newline.
 \d	[0-9]  matches a digit
 \D	[^0-9]  matches all but a digit
@@ -92,3 +96,44 @@ $1
 \W	[^a-zA-Z0-9_]  matches all but a word character
 \s	Matches any whitespace character, including spaces and tabs.
 \S	Matches all but a whitespace character.
+
+
+# Character set is anything inside [] and anything inside will be treated as a separate character, and it will match anything that contains at least one of the characters inside the []
+regex special characters inside [] don't need to be escaped
+
+the quantifiers do not work inside the [] you need to put the quantifiers outside the []
+
+you can put (|) between two character sets
+(|) is an OR statement, it means any character from the first set OR the second set
+
+Negated sets is like an exclude/inverse search,
+the result is everything but the specified regex 
+it starts with [^ and end with]
+[^regex]
+
+
+# Capture group is anything inside () you can use it for
+1-make the quantifier treat anything inside () as a whole string
+(?:regex)
+2-replace part of a matched string but keep the other part intact
+(regex)
+
+# Lookahead and Lookbehind
+Positive Lookahead  (?=regex)
+Negative Lookahead  (?!regex)
+Positive Lookbehind (?<=regex)
+Negative Lookbehind (?<!regex)
+
+Positive Lookahead is usually like this
+the_other_regex(?=regex)
+
+Positive Lookbehind  is usually like this
+(?<=regex)the_other_regex
+
+lookahead is a word boundary BEFORE the regex
+Lookbehind is a word boundary AFTER the regex
+
+You can use the (|) with Lookahead and Lookbehind
+(?!string1|string2|string3)
+
+# You can use the | operator inside () and []
