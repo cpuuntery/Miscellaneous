@@ -9,7 +9,7 @@ You can use [&] to add a string after the returned value
 
 You can use the function more than once, but only the first one will start with = 
 the second time you use it, you must put it inside parentheses and remove the = 
-to connect the function, you will add Ampersand[&] outside the Parenthesis[()]
+to connect the functions with other functions. you will add Ampersand[&] outside the Parenthesis[()]
 
 Example 1
 
