@@ -1,0 +1,33 @@
+The function[INDIRECT] returns the text content of a range of cells. The return text changes based on the place of the function
+
+=INDIRECT("Range of any cells whether they are adjacent or not. The only requirement for the range to be valid")
+=INDIRECT("A1:A25")
+
+You can use [&] to add a string after the returned value
+
+=INDIRECT("A1:A25")&".Location.Y"
+
+You can use the function more than once, but only the first one will start with = 
+the second time you use it, you must put it inside parentheses and remove the = 
+to connect the function, you will add Ampersand[&] outside the Parenthesis[()]
+
+Example 1
+
+=INDIRECT("A1:A25")&".Location.Y,"&(INDIRECT("A1:A25")&".Width, ")
+
+Example 2
+
+=INDIRECT("A1:A25")&".Location.Y,"&(INDIRECT("A1:A25")&".Width,")&(INDIRECT("A1:A25")&".Height")
+
+
+Example 3
+
+=INDIRECT("A1:A25")&".Location.X,"&(INDIRECT("A1:A25")&".Location.Y,")&(INDIRECT("A1:A25")&".Width,")&(INDIRECT("A1:A25")&".Height")
+
+Will turn out
+
+button1.Location.X,button1.Location.Y,button1.Width,button1.Height
+
+
+
+
