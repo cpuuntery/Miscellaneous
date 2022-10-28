@@ -1,3 +1,0 @@
-#grep don't like double quotes. it will not work. remember that yousif
-
-grep -r -Po 'your regex'
