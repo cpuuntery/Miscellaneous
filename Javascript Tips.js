@@ -71,3 +71,6 @@ $('parent_element:has(child_element)')
 //parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]
 #only work in Chrome DevTools Console
 $x("//parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]")
+
+#When you use arrow function, anything after the arrow function must be inside {} but you can omit it if the arrow function is simple
+document.querySelectorAll("img").forEach(x => {if(x.height == 16){x.remove()}})
