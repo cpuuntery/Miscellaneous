@@ -74,3 +74,51 @@ $x("//parent_element[child_element[contains(@child_element_Attribute,'Attribute_
 
 #When you use arrow function, anything after the arrow function must be inside {} but you can omit it if the arrow function is simple
 document.querySelectorAll("img").forEach(x => {if(x.height == 16){x.remove()}})
+
+#To Concatenate a String with a Variable you need to put the string the Variable inside backtick (`)
+example = 'world';
+result = `hello ${example}`
+
+#To change element attribute you need first to get the element then change its attribute 
+#to get the element you have two options
+
+document.getElementById('elem_id_value')
+document.querySelector('#elem_id_value')
+document.querySelector('.elem_class_value')
+
+#the aforementioned options work on a single element
+#when you need more than one element, you can use 
+#querySelectorAll() with arrow function
+
+#setAttribute() take two arguments the attribute name and the attribute value
+#when the element does not have an attribute will be assigned to it
+
+setAttribute(Attribute_name, Attribute_value)
+
+#For example 
+document.querySelector("a").setAttribute("href", "javascript.info");
+
+#will change "href" value of the "a" element to javascript.info
+
+#You can use removeAttribute() to remove an attribute from the element. It only takes one argument
+#just like setAttribute you need to select an element first
+removeAttribute(attrName)
+
+#element class is considered an attribute, but you can change it with two other ways
+
+#First way using classList
+#just like setAttribute you need to get the element first
+
+#classList does not overwrite other classes, it just added another class
+
+#to add class to an element  
+classList.add('MyClass') 
+#to remove class from an element
+classList.remove('MyClass')
+
+#Second way using className
+#just like setAttribute you need to get the element first
+
+#className overwrite every class with the value that you assigned to it        (Useful to remove all the classes from an element)
+#to remove all the classes from an element
+className = ''
