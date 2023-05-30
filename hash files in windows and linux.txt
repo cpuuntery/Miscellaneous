@@ -1,0 +1,4 @@
+Get-ChildItem -Recurse -File | Get-FileHash -Algorithm SHA1 | Select Hash,Path | % {$_ -replace "(\w.*? )(.+)(\\)(.*)", "`$1`$4"} | % {$_ -replace "@.*?=", ""} | % {$_ -replace "}", ""} | % {$_ -replace ";", ""} | % {$_.ToUpper()}
+
+
+find -type f -print0 | sort -z | xargs -0 sha1sum | tr '[:lower:]' '[:upper:]'
