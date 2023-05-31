@@ -1,0 +1,19 @@
+The first regex pattern is piped into the second regex pattern or the third if it exists
+
+MAKE SURE THE FOLLOWING REGEX PATTERNS DOES NOT CONTAIN SPACE AT THE END
+
+###############################################    [DOES CONTAIN] AND [DOES NOT CONTAIN] CAN BE EITHER REGEX PATTERN OR A PLAIN STRING    ##############################################################
+
+
+^.*(?=does contain)(?:(?!does not contain).)*$                        The first regex pattern [does contain] is piped into the second regex pattern [does not contain]
+
+
+^.*(?=does contain).*(?=does contain).*$                              The first regex pattern [does contain] is piped into the second regex pattern [does contain]
+
+
+^(?:(?!.*does not contain).)(?:(?!does not contain).)*$               The first regex pattern [does not contain] is piped into the second regex pattern [does not contain]                 
+
+
+^(?:(?!.*does not contain).).*(?=does contain).*$                     The first regex pattern [does not contain] is piped into the second regex pattern [does contain]
+
+
