@@ -29,6 +29,9 @@ word.*?word
 # exclude the word in the result
 (?<=This is).*?(?=sentence)
 
+# regex include lines containing a specific word
+^.*(?=composing|composed).*$
+
 # regex exclude lines containing a specific word
 ^(?:(?!android|google|qualcomm).)*$
 
@@ -137,3 +140,25 @@ You can use the (|) with Lookahead and Lookbehind
 (?!string1|string2|string3)
 
 # You can use the | operator inside () and []
+
+# Pipe regex into another regex
+Special thanks to [Lookahead] without it . Piping would not be possible.
+The first regex pattern is piped into the second regex pattern or the third if it exists
+
+^.*(?=does contain).*(?=does contain).*(?=does contain).*$
+
+MAKE SURE THE FOLLOWING REGEX PATTERNS DOES NOT CONTAIN SPACE AT THE END
+
+###############################################    [DOES CONTAIN] AND [DOES NOT CONTAIN] CAN BE EITHER REGEX PATTERN OR A PLAIN STRING    ##############################################################
+
+
+^.*(?=does contain)(?:(?!does not contain).)*$                        The first regex pattern [does contain] is piped into the second regex pattern [does not contain]
+
+
+^.*(?=does contain).*(?=does contain).*$                              The first regex pattern [does contain] is piped into the second regex pattern [does contain]
+
+
+^(?:(?!.*does not contain).)(?:(?!does not contain).)*$               The first regex pattern [does not contain] is piped into the second regex pattern [does not contain]                 
+
+
+^(?:(?!.*does not contain).).*(?=does contain).*$                     The first regex pattern [does not contain] is piped into the second regex pattern [does contain]
