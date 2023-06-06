@@ -1,0 +1,29 @@
+#!/bin/bash
+search_path='/home/mint/Documents/touhou'
+files_list='/home/mint/Documents/filelist.txt'
+readarray -t files < $files_list
+for file in "${files[@]}"
+do
+  if find "$search_path" -type f -iname "$(printf '%q' "$file")" -print -quit | grep -q .; then
+    echo "$(tput setaf 2)File $file found $(tput sgr0)"
+  else
+    echo "$(tput setaf 1)File $file not found! $(tput sgr0)"
+  fi
+done
+
+
+
+
+
+
+
+
+
+
+$search_path = Get-ChildItem -Recurse -File 'C:\Users\Yousif\Music\touhou'
+$files_list = Get-Content -Encoding UTF8 'C:\Users\Yousif\Music\filelist.txt'
+foreach ($fileName in $files_list) {
+if ($search_path.Name -contains $fileName) {
+    Write-Host "File $fileName found" -foregroundcolor green
+} else {Write-Host "File $fileName not found!" -foregroundcolor red}}
+

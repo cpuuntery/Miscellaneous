@@ -1,0 +1,90 @@
+#!/bin/bash
+search_path='/home/mint/Documents/touhou'
+files_list='/home/mint/Documents/filelist.txt'
+while read -r FILE
+do
+  FOUND="$(find $search_path -type f -iname "$(printf '%q' "$FILE")" -print -quit)"
+  if [[ "x$FOUND" != "x" ]]
+  then
+    echo "$(tput setaf 2)File $FILE found $(tput sgr0)"
+  else
+    echo "$(tput setaf 1)File $FILE not found! $(tput sgr0)"
+  fi
+done <$files_list
+
+
+$search_path = 'C:\Users\Yousif\Music\touhou'
+$files_list = Get-Content -Encoding UTF8 'C:\Users\Yousif\Music\filelist.txt'
+$files_in_search_path = Get-ChildItem -Recurse $search_path -File
+foreach ($f in $files_list) {
+if ($files_in_search_path.Name -contains $f) {
+Write-Host "File $f found" -foregroundcolor green
+} else {Write-Host "File $f not found!" -foregroundcolor red}}
+
+
+#!/bin/bash
+search_path='/home/mint/Documents/touhou'
+files_list='/home/mint/Documents/filelist.txt'
+readarray -t files < "$files_list"
+find "$search_path" -type f -printf "%f\n" | while read -r filename; do
+    found=false
+    for file in "${files[@]}"; do
+        if [[ "$filename" = "$file" ]]; then
+			echo "$(tput setaf 2)File $filename found $(tput sgr0)"
+            found=true
+            continue
+        fi
+    done
+    if [[ "$found" != true ]]; then
+		echo "$(tput setaf 1)File $filename not found! $(tput sgr0)"
+    fi
+done
+
+
+$search_path = 'C:\Users\Yousif\Music\touhou'
+$files_list = Get-Content -Encoding UTF8 'C:\Users\Yousif\Music\filelist.txt'
+foreach ($filename in $files_list) {
+$found=$false; 
+Get-ChildItem -Recurse $search_path -File | ForEach-Object {
+if($filename -eq $_.Name) {Write-Host 'File' $filename 'found' -foregroundcolor green; $found=$true;CONTINUE }$found=$false;} -END {if($found -ne $true){ Write-Host 'File' $filename 'not found!' -foregroundcolor red}}}
+
+
+#if the directory contain a file that is not in the list
+
+$search_path = 'C:\Users\Yousif\Music\touhou'
+$files_list = Get-Content -Encoding UTF8 'C:\Users\Yousif\Music\filelist.txt'
+Get-ChildItem -Recurse $search_path -File | ForEach-Object  {$found=$false; foreach ($filename in $files_list) {if($filename -eq $_.Name) {Write-Host 'File' $_.Name 'found on the list' -foregroundcolor green; $found=$true;BREAK }} if($found -ne $true){ Write-Host 'File' $_.Name 'missing on the list of files' -foregroundcolor red} }
+
+
+#if the directory contain a file that is not in the list
+
+#!/bin/bash
+search_path='/home/mint/Documents/touhou'
+files_list='/home/mint/Documents/filelist.txt'
+readarray -t files < "$files_list"
+find "$search_path" -type f -printf "%f\n" | while read -r filename; do
+    found=false
+    for file in "${files[@]}"; do
+        if [[ "$file" = "$filename" ]]; then
+			echo "$(tput setaf 2)File $filename found on the list $(tput sgr0)"
+            found=true
+            break
+        fi
+    done
+    if [[ "$found" != true ]]; then
+		echo "$(tput setaf 1)File $filename missing on the list of files $(tput sgr0)"
+    fi
+done
+
+
+#Only return files. That do partly match the file list.
+
+#!/bin/bash
+search_path='/home/mint/Documents/touhou'
+files_list='/home/mint/Documents/filelist.txt'
+find "$search_path" -type f | grep -F -f $files_list | sed -e 's/\/.*\///g' -e 's/^\.//g' | while read files_list
+do
+    echo "$(tput setaf 2)File $files_list found $(tput sgr0)"
+done
+
+
