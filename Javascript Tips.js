@@ -69,7 +69,7 @@ $('parent_element:has(child_element)')
 #XPath does not care about the child element. XPath just need an element and a condition to select an element if specified
 #It only works with parent and child elements. So it is weaker than jQuery
 //parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]
-#only work in Chrome DevTools Console
+#only work in Chrome DevTools Console       (If you are using the DevTools Console, the outside of XPath must use double quotes, but the inside must use single quotes)
 $x("//parent_element[child_element[contains(@child_element_Attribute,'Attribute_Value')]]")
 
 #When you use arrow function, anything after the arrow function must be inside {} but you can omit it if the arrow function is simple
