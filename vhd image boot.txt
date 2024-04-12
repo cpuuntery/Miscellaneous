@@ -1,0 +1,16 @@
+Create bootable windows vhd/vhdx image and maybe even linux
+
+1- you need an intermediate virtual disk to write the acronis backup image 
+2- create a fat32 partition at the beginning of the disk --BUT DO NOT SET THE TYPE TO EFI PARTITION JUST YET--
+3- write the acronis image to the partition after the fat32 partition 
+4- use easy uefi to put efi boot files inside the fat32 partition 
+5- change the fat32 partition type to efi partition
+6- create an empty vhd/vhdx image and add the vhd file as a virtual disk to the virtual machine. you can not add vhdx as virtual disk to the virtual machine. so just create vhdx disk
+7- copy the intermediate virtual disk to the virtual vhd/vhdx disk using MiniTool Partition
+8- mount the vhd/vhdx disk image and rebuild the EFI partition inside the disk image using easyuefi
+9- unmount the vhd/vhdx disk image
+
+
+The windows image must have an EFI partition as the first partition, in other words the beginning of the disk 
+you can create EFI partition using EasyUEFI and if EasyUEFI did not work you can use macrium as a secondary option
+
