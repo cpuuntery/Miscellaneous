@@ -1,0 +1,12 @@
+sudo apt install zstd partclone
+
+
+
+
+zstdcat sdc3.ext4-ptcl-img.zst.aa | sudo partclone.ext4 -C -r -W -s - -O image.img && sudo chmod 777 image.img
+
+
+zstdcat sdc3.ext4-ptcl-img.zst.aa | sudo partclone.ntfs -C -r -W -s - -O image.img && sudo chmod 777 image.img
+
+
+zstdcat sdc3.ext4-ptcl-img.zst.aa | sudo partclone.fat32 -C -r -W -s - -O image.img && sudo chmod 777 image.img
